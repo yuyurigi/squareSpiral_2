@@ -2,8 +2,6 @@
 
 #include "ofMain.h"
 
-//static const int NUM = 3; //色数
-
 class ofApp : public ofBaseApp{
 
     public:
