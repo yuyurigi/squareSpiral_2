@@ -16,7 +16,7 @@ void ofApp::setup(){
     colors.push_back(ofColor::fromHex(0xFFE5D9));
     colors.push_back(ofColor::fromHex(0xFFD7BA));
     colors.push_back(ofColor::fromHex(0xFEC89A));
-    
+   
     lineWidth = 4; //線の太さ
     
     fbo.allocate(ofGetWidth(), ofGetHeight());
@@ -683,7 +683,12 @@ void ofApp::drawOutlineRect(glm::vec2 centerP, float rad, ofColor col){
 ofColor ofApp::readBackground(float x, float y){
     ofPixels colorPixels;
     fbo2.readToPixels(colorPixels);
-    ofColor c = colorPixels.getColor(x, y);
+    ofColor c;
+    if(0<x && x<ofGetWidth() && 0<y && 0<ofGetHeight()){
+        c = colorPixels.getColor(x, y);
+    } else {
+        c = ofColor(0, 0, 0);
+    }
     return c;
     
 }
